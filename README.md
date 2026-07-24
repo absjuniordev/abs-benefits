@@ -1,183 +1,254 @@
-# 🚀 Benefícios Flexíveis API
+# ABS Benefits API
 
-API em **Spring Boot** para gestão de benefícios flexíveis, pensada para ser **simples no uso**, **clara na organização** e **profissional na arquitetura**.
+![Java](https://img.shields.io/badge/Java-17-orange)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-green)
+![Status](https://img.shields.io/badge/status-in%20development-yellow)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
-O foco do projeto é resolver um problema real de negócio sem complicar: permitir que empresas gerenciem colaboradores, benefícios e saldos de forma segura, organizada e preparada para crescer.
-
----
-
-## 🎯 Qual problema essa API resolve
-
-Gerenciar benefícios como VR, transporte, saúde, gym pass e similares costuma virar bagunça quando o sistema não foi bem pensado.
-
-Essa API resolve isso fazendo o básico **bem-feito**, mas já deixando espaço para evoluções mais robustas:
-
-* Cadastro de empresas
-* Cadastro de colaboradores
-* Definição de tipos de benefícios
-* Carteira individual de benefícios
-* Controle de saldo (crédito e débito)
-* Relatórios para tomada de decisão
-
-Nada de exagero. Funcional, claro e sustentável.
+> Modern employee benefits management API built with Java and Spring Boot, focused on clean architecture, security, and scalable backend development.
 
 ---
 
-## 🔧 Funcionalidades
+# 🚀 About the Project
 
-### 🔐 Autenticação
+**ABS Benefits** is a backend application designed to manage flexible employee benefits in a secure, organized, and scalable way.
 
-* Cadastro e login de usuários
-* Autenticação via JWT
-* Controle de acesso por contexto
+The project is part of the **ABS — Application Backend Solutions** portfolio and demonstrates enterprise backend development practices using Java and Spring Boot.
 
-### 🏢 Empresas
+Current focus:
 
-* CRUD completo
-* Relacionamento com colaboradores
+- RESTful APIs
+- JWT Authentication & Authorization
+- Domain-driven modeling
+- Employee benefits management
+- Benefits wallet management
+- Layered architecture
+- Clean Code principles
+- Scalable backend design
 
-### 👤 Colaboradores
-
-* Cadastro e gerenciamento
-* Vínculo com empresa
-* Carteira individual de benefícios
-
-### 🎁 Benefícios
-
-* Cadastro de tipos de benefícios
-* Regras e limites configuráveis
-
-### 💼 Carteira de Benefícios
-
-* Crédito de saldo
-* Débito de saldo
-* Auditoria das movimentações
-
-### 📊 Relatórios
-
-* Visão geral por empresa
-* Monitoramento de uso dos benefícios
+Although it started as a learning project, ABS Benefits is continuously evolving into a production-inspired enterprise application.
 
 ---
 
-## 🧱 Arquitetura e organização do projeto
+# 🧠 Domain Overview
 
-O projeto segue uma **organização orientada por feature (feature-based / domain-oriented)**.
+The system is based on a real-world employee benefits management platform.
 
-Isso significa que cada funcionalidade é tratada como um módulo completo, mantendo tudo que pertence ao mesmo domínio **junto e coeso**.
+## Main Entities
 
-### Estrutura geral
+- User
+- Enterprise
+- Employee
+- Benefit
+- Benefit Wallet
+- Wallet Transaction
 
+## Business Rules
+
+- An enterprise can have multiple employees.
+- Each employee owns a benefits wallet.
+- Wallet balances can be credited and debited.
+- Benefits are configurable per company.
+- Every wallet transaction is auditable.
+- Access is protected through JWT authentication.
+
+---
+
+# 🛠️ Technologies
+
+## Backend
+
+- Java 17
+- Spring Boot
+- Spring Security
+- JWT
+- Spring Data JPA
+- Hibernate
+- Maven
+
+## Database
+
+- PostgreSQL
+
+## Infrastructure
+
+- Docker
+- Docker Compose
+
+## Documentation
+
+- Swagger / OpenAPI
+
+## Testing
+
+- JUnit 5
+- MockMvc
+
+---
+
+# 📐 Architecture
+
+The project follows a feature-based architecture, organizing the application around business domains instead of technical layers.
+
+## Main Principles
+
+- Feature-oriented organization
+- Domain isolation
+- Separation of responsibilities
+- Scalable architecture
+- Clean Code
+- SOLID principles
+
+## Project Structure
+
+```text
+com.absjrdev.absbenefits
+│
+├── config
+├── common
+│
+├── user
+│   ├── api
+│   ├── application
+│   ├── domain
+│   ├── dto
+│   └── repository
+│
+├── enterprise
+├── employee
+├── benefit
+├── benefitswallet
+│
+└── AbsBenefitsApplication.java
 ```
-com.absjrdev.benefitsapi
-│
-├── config          # Configurações globais (security, OpenAPI, etc.)
-├── common          # Componentes compartilhados (exceptions, utils)
-│
-├── user            # Feature de usuários
-│   ├── api         # Controllers REST
-│   ├── application # Serviços / casos de uso
-│   ├── domain      # Entidade e regras de negócio
-│   ├── dto         # DTOs de entrada e saída
-│   └── repository  # Persistência
-│
-├── benefit         # Feature de benefícios
-├── benefitsWallet  # Feature de carteira de benefícios
-│
-└── BenefitsApiApplication.java
-```
-
-### Decisões de design adotadas
-
-* **Organização por feature**, não por camada genérica
-* **Domínio isolado**, contendo regras e protegendo estado
-* **Services orquestram**, não concentram regra de negócio
-* **DTOs apenas transportam dados**, sem lógica
-* **Exceções próximas do domínio**, facilitando manutenção
-* Estrutura **simples, previsível e escalável**
-
-Esse padrão evita acoplamento desnecessário e facilita crescimento do projeto sem virar bagunça.
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+# 📦 Features
 
-* Java 17
-* Spring Boot 3
-* Spring Security + JWT
-* JPA / Hibernate
-* PostgreSQL
-* Docker / Docker Compose
-* Bean Validation
-* Swagger / OpenAPI
-* JUnit + MockMvc
+## Current Features
 
----
-
-## 📌 Exemplos de endpoints
-
-| Método | Rota                        | Descrição            |
-| ------ | --------------------------- | -------------------- |
-| POST   | `/auth/register`            | Cria usuário         |
-| POST   | `/auth/login`               | Gera token JWT       |
-| POST   | `/enterprises`                | Cria empresa         |
-| GET    | `/enterprises`                | Lista empresas       |
-| POST   | `/employees`                | Cadastra colaborador |
-| POST   | `/benefits`                 | Cria benefício       |
-| POST   | `/wallets/{employeeId}/add` | Adiciona saldo       |
-| GET    | `/reports/enterprises/{id}`     | Relatório geral      |
+- JWT Authentication & Authorization
+- User management
+- Enterprise management
+- Employee management
+- Benefit management
+- Benefits wallet management
+- Wallet transactions
+- Reports
+- RESTful API endpoints
 
 ---
 
-## ▶️ Como rodar o projeto localmente
+# 🔮 Roadmap
 
-### Requisitos
+Planned improvements include:
 
-* Java 17
-* Maven
-* Docker
-* Docker Compose
+- PostgreSQL integration
+- Spring Data JPA
+- Hibernate
+- Docker
+- Docker Compose
+- CI/CD with GitHub Actions
+- Cloud deployment
+- Kafka integration
+- Email notifications
+- Metrics & Observability
+- Unit and integration tests
 
-### Passos
+---
+
+# 📚 Learning Goals
+
+This project was developed to strengthen practical knowledge in:
+
+- Spring Boot
+- Spring Security
+- JWT Authentication
+- RESTful API development
+- Enterprise backend architecture
+- Relational database modeling
+- Docker
+- Software architecture
+- Clean Architecture
+- SOLID principles
+
+---
+
+# ▶️ Running the Project
+
+## Requirements
+
+- Java 17+
+- Maven
+
+## Clone the repository
 
 ```bash
-git clone https://github.com/seu-usuario/beneficios-flexiveis-api.git
-cd beneficios-flexiveis-api
-
-docker-compose up -d
-
-mvn spring-boot:run
+git clone https://github.com/absjuniordev/abs-benefits.git
 ```
 
-Swagger UI:
+## Run the application
 
+```bash
+./mvnw spring-boot:run
 ```
-http://localhost:8080/swagger-ui.html
+
+## Swagger UI
+
+```text
+http://localhost:8080/swagger-ui/index.html
 ```
+
+# 📡 API Endpoints
+
+Examples:
+
+```http
+POST   /auth/register
+POST   /auth/login
+
+GET    /enterprises
+POST   /enterprises
+
+GET    /employees
+POST   /employees
+
+GET    /benefits
+POST   /benefits
+
+POST   /wallets/{employeeId}/credit
+POST   /wallets/{employeeId}/debit
+
+GET    /reports/enterprises/{id}
+```
+
+Complete API documentation is available through Swagger.
 
 ---
 
-## ✅ Pontos fortes do projeto
+# 🧪 Project Status
 
-* Arquitetura clara e sustentável
-* Organização profissional por feature
-* JWT implementado corretamente
-* Separação real de responsabilidades
-* Projeto pronto para evoluir sem retrabalho
-* Ambiente reproduzível via Docker
+🚧 **In Development**
 
-Esse tipo de estrutura é pensada para **projeto real**, não apenas para demonstração.
+ABS Benefits is continuously evolving with new features, architectural improvements, and infrastructure enhancements.
 
 ---
 
-## 🚀 Possíveis evoluções
+# 👨‍💻 Author
 
-* Integração com meios de pagamento (sandbox)
-* Mensageria assíncrona (Kafka / RabbitMQ)
-* Notificações por e-mail ou webhook
-* Frontend web (React, Angular ou Vue)
-* Observabilidade (metrics, tracing)
+Developed by **Arnaldo Borges dos Santos Junior**
 
 ---
 
-Projeto construído com foco em clareza, organização e boas práticas de mercado.
+## About ABS
+
+**ABS — Application Backend Solutions**
+
+A personal portfolio focused on building modern backend applications with Java, Spring Boot, and enterprise software engineering practices.
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License and is available for learning and educational purposes.
