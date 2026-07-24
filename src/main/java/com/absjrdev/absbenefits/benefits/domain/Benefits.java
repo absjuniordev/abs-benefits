@@ -15,7 +15,7 @@ public class Benefits {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
+    private String name;
 
     private String description;
 
@@ -28,7 +28,7 @@ public class Benefits {
     }
 
     private Benefits(String name, String description, Double limitMonthly) {
-        this.nome = name;
+        this.name = name;
         this.description = description;
         this.limitMonthly = limitMonthly;
     }

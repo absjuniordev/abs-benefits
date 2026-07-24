@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,7 +25,7 @@ public class Employee {
     @Column(nullable = false,unique = true)
     private String cpf;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "enterprise_id")
     private Enterprise enterprise;
 

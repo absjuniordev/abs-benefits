@@ -23,6 +23,7 @@ public class AuthService {
     public void register(RegisterRequestDTO request) {
 
         User user = User.create(
+                request.name(),
                 request.email(),
                 passwordEncoder.encode(request.password()),
                 request.role()

@@ -11,7 +11,7 @@ public record BenefitsResponseDTO(
     public static BenefitsResponseDTO from(Benefits benefits) {
         return new BenefitsResponseDTO(
                 benefits.getId(),
-                benefits.getNome(),
+                benefits.getName(),
                 benefits.getDescription(),
                 benefits.getLimitMonthly());
     }

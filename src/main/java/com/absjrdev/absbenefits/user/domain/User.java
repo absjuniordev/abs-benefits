@@ -30,7 +30,7 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private Role role;
 
-    @OneToMany(mappedBy = "users")
+    @OneToMany(mappedBy = "user")
     private List<LogOperation> logs;
 
     protected User() {}
@@ -53,7 +53,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return "";
+        return email;
     }
 
     @Override
