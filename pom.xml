@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.absjrdev</groupId>
-	<artifactId>benefits-api</artifactId>
+	<artifactId>abs-benefits</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>benefits-api</name>
+	<name>abs-benefits</name>
 	<description>API para gestão de benefícios flexíveis em empresas, incluindo administração de colaboradores, créditos, categorias e transações.</description>
 	<url/>
 	<licenses>
