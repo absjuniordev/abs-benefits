@@ -239,6 +239,8 @@ ABS Benefits is continuously evolving with new features, architectural improveme
 
 Developed by **Arnaldo Borges dos Santos Junior**
 
+Backend Developer
+
 ---
 
 ## About ABS
